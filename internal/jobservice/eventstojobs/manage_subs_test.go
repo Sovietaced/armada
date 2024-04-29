@@ -42,11 +42,6 @@ func (m *MockEventClient) Recv() (*api.EventStreamMessage, error) {
 		return nil, io.EOF
 	}
 
-	// We only want to return the error once.
-	defer func() {
-		m.err = nil
-	}()
-
 	return msg, m.err
 }
 
